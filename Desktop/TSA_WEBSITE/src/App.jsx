@@ -23,7 +23,7 @@ function App() {
   }, [])
 
   return (
-    <Router>
+    <Router basename="/TSA-WEBSITE">
       <ScrollToTop />
       <div className="App">
         <Header isScrolled={isScrolled} />
