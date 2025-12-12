@@ -12,3 +12,15 @@ if (fs.existsSync(source)) {
   console.log('⚠ 404.html not found in public folder');
 }
 
+// Create .nojekyll file for GitHub Pages
+const nojekyllPath = path.join(__dirname, 'dist', '.nojekyll');
+fs.writeFileSync(nojekyllPath, '');
+console.log('✓ .nojekyll created');
+
+// Remove .gitignore from dist if it exists
+const gitignorePath = path.join(__dirname, 'dist', '.gitignore');
+if (fs.existsSync(gitignorePath)) {
+  fs.unlinkSync(gitignorePath);
+  console.log('✓ .gitignore removed from dist');
+}
+
