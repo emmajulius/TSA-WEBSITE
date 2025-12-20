@@ -78,7 +78,7 @@ const Contact = () => {
               </div>
               <h3>Visit Us</h3>
               <div className="info-details">
-                <p>Dar es Salaam City</p>
+                <p>Dar es Salaam city, Tanzania</p>
               </div>
               <p className="info-note">Schedule a visit in advance</p>
             </div>
