@@ -1,0 +1,257 @@
+.services {
+  padding: 6rem 2rem;
+  background: white;
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-badge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-color);
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--bg-light);
+  padding: 2.5rem;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--service-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--service-color);
+  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+  background: white;
+}
+
+.service-card-header {
+  margin-bottom: 1.5rem;
+}
+
+.service-icon-wrapper {
+  margin-bottom: 1rem;
+}
+
+.service-icon {
+  font-size: 4rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.service-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.service-description {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.service-benefits {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(37, 99, 235, 0.05);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.benefits-icon {
+  font-size: 1.2rem;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-features {
+  margin-bottom: 1.5rem;
+}
+
+.service-features li {
+  padding: 0.6rem 0;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: 1.8rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.service-features li:hover {
+  color: var(--primary-color);
+}
+
+.feature-check {
+  position: absolute;
+  left: 0;
+  color: var(--secondary-color);
+  font-weight: bold;
+  font-size: 1.1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 50%;
+}
+
+.service-footer {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.service-btn {
+  width: 100%;
+  padding: 0.875rem;
+  background: transparent;
+  border: 2px solid var(--service-color);
+  color: var(--service-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.service-btn:hover {
+  background: var(--service-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.services-cta {
+  margin-top: 5rem;
+  padding: 4rem 3rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+}
+
+.cta-content h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-buttons .btn-primary {
+  background: white;
+  color: var(--primary-color);
+}
+
+.cta-buttons .btn-primary:hover {
+  background: var(--bg-light);
+  transform: translateY(-2px);
+}
+
+.cta-buttons .btn-secondary {
+  background: transparent;
+  color: white;
+  border-color: white;
+}
+
+.cta-buttons .btn-secondary:hover {
+  background: white;
+  color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 4rem 1rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-cta {
+    padding: 3rem 2rem;
+  }
+
+  .cta-content h3 {
+    font-size: 2rem;
+  }
+
+  .cta-content p {
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+  }
+}
+

@@ -120,12 +120,6 @@ const Services = () => {
               >
                 Schedule Consultation
               </button>
-              <button 
-                className="btn btn-secondary"
-                onClick={() => navigate('/portfolio')}
-              >
-                View Portfolio
-              </button>
             </div>
           </div>
         </div>

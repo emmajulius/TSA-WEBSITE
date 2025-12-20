@@ -27,7 +27,6 @@ const Footer = () => {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/services">Services</Link></li>
-              <li><Link to="/portfolio">Portfolio</Link></li>
               <li><Link to="/booking">Booking</Link></li>
               <li><Link to="/contact">Contact</Link></li>
             </ul>
@@ -48,7 +47,7 @@ const Footer = () => {
             <h3 className="footer-title">Contact Info</h3>
             <ul className="footer-contact">
               <li>📧 info@tsadigitalsolutions.com</li>
-              <li>📞 +1 (555) 123-4567</li>
+              <li>📞 +255756556768 / +255650379646</li>
               <li>📍 Dar es Salaam city, Tanzania</li>
             </ul>
           </div>

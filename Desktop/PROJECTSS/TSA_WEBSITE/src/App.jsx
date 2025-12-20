@@ -7,7 +7,6 @@ import TechStack from './components/TechStack'
 import Home from './pages/Home'
 import AboutPage from './pages/About'
 import ServicesPage from './pages/Services'
-import PortfolioPage from './pages/Portfolio'
 import BookingPage from './pages/Booking'
 import ContactPage from './pages/Contact'
 
@@ -31,7 +30,6 @@ function App() {
           <Route path="/" element={<><Home /><TechStack /></>} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
