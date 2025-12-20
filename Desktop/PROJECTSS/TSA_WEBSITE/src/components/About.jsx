@@ -91,7 +91,7 @@ const About = () => {
             <div className="content-section">
               <h3>Why Choose Us</h3>
               <ul className="features-list">
-                <li>Proven track record with 100+ successful projects</li>
+                <li>Proven track record with 30+ successful projects</li>
                 <li>Expert team with years of industry experience</li>
                 <li>Cutting-edge technology stack and methodologies</li>
                 <li>Dedicated support and maintenance services</li>
@@ -103,12 +103,12 @@ const About = () => {
           <div className={`about-stats ${isVisible ? 'fade-in-right' : ''}`}>
             <div className="stat-item">
               <div className="stat-icon">📊</div>
-              <div className="stat-number">100+</div>
+              <div className="stat-number">30+</div>
               <div className="stat-label">Projects Delivered</div>
             </div>
             <div className="stat-item">
               <div className="stat-icon">😊</div>
-              <div className="stat-number">50+</div>
+              <div className="stat-number">25+</div>
               <div className="stat-label">Happy Clients</div>
             </div>
             <div className="stat-item">

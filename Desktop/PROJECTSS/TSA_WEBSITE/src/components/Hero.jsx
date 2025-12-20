@@ -12,8 +12,8 @@ const Hero = () => {
   }, [])
 
   const stats = [
-    { number: '100+', label: 'Projects Completed' },
-    { number: '50+', label: 'Happy Clients' },
+    { number: '30+', label: 'Projects Completed' },
+    { number: '25+', label: 'Happy Clients' },
     { number: '3+', label: 'Years Experience' },
     { number: '24/7', label: 'Support Available' }
   ]
