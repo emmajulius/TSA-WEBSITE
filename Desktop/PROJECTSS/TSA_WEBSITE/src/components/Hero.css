@@ -300,11 +300,6 @@
 }
 
 
-@media (max-width: 968px) {
-  .hero-cards-wrapper {
-    grid-template-columns: 1fr;
-  }
-}
 
 .hero-card.card-2,
 .hero-card.card-3 {
@@ -514,6 +509,11 @@
 
   .hero-description {
     font-size: 1rem;
+  }
+
+  .hero-cards-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
   }
 
   .hero-stats {
