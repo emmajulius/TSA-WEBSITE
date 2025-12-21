@@ -73,16 +73,13 @@ const Contact = () => {
               <p className="info-note">Mon-Fri: 9AM - 6PM EST</p>
             </div>
             <div className="info-card map-card">
-              <div className="info-icon-wrapper">
-                <div className="info-icon">📍</div>
-              </div>
               <h3>Find Us</h3>
               <div className="map-card-content">
                 <div className="mini-map">
                   <iframe
                     src="https://www.google.com/maps?q=Mabibo+street,+Dar+es+Salaam,+Tanzania&output=embed"
                     width="100%"
-                    height="200"
+                    height="280"
                     style={{ border: 0, borderRadius: '8px' }}
                     allowFullScreen=""
                     loading="lazy"
