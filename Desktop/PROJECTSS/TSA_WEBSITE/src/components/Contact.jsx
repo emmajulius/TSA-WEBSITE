@@ -72,15 +72,34 @@ const Contact = () => {
               </div>
               <p className="info-note">Mon-Fri: 9AM - 6PM EST</p>
             </div>
-            <div className="info-card">
+            <div className="info-card map-card">
               <div className="info-icon-wrapper">
                 <div className="info-icon">📍</div>
               </div>
-              <h3>Visit Us</h3>
-              <div className="info-details">
-                <p>Mabibo street, Dar es Salaam city, Tanzania</p>
+              <h3>Find Us</h3>
+              <div className="map-card-content">
+                <div className="mini-map">
+                  <iframe
+                    src="https://www.google.com/maps?q=Mabibo+street,+Dar+es+Salaam,+Tanzania&output=embed"
+                    width="100%"
+                    height="200"
+                    style={{ border: 0, borderRadius: '8px' }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="TSA Digital Solutions Location"
+                  ></iframe>
+                </div>
+                <p className="map-address-text">Mabibo street, Dar es Salaam city, Tanzania</p>
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Mabibo+street,+Dar+es+Salaam,+Tanzania" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="view-full-map-btn"
+                >
+                  View Full Map →
+                </a>
               </div>
-              <p className="info-note">Schedule a visit in advance</p>
             </div>
           </div>
 
@@ -145,23 +164,6 @@ const Contact = () => {
               </div>
             )}
           </form>
-
-          <div className="contact-map">
-            <h3 className="map-title">Find Us</h3>
-            <div className="map-container">
-              <iframe
-                src="https://www.google.com/maps?q=Mabibo+street,+Dar+es+Salaam,+Tanzania&output=embed"
-                width="100%"
-                height="400"
-                style={{ border: 0, borderRadius: '12px' }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="TSA Digital Solutions Location - Mabibo street, Dar es Salaam"
-              ></iframe>
-            </div>
-            <p className="map-address">📍 Mabibo street, Dar es Salaam city, Tanzania</p>
-          </div>
         </div>
       </div>
     </section>
