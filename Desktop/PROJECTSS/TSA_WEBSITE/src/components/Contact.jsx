@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './Contact.css'
 
 const Contact = () => {
+  const contactInfoRef = useRef(null)
+  const formRef = useRef(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -10,6 +12,40 @@ const Contact = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
+
+  useEffect(() => {
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in')
+        }
+      })
+    }, observerOptions)
+
+    // Observe info cards
+    if (contactInfoRef.current) {
+      const infoCards = contactInfoRef.current.children
+      Array.from(infoCards).forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`
+        observer.observe(card)
+      })
+    }
+
+    // Observe form
+    if (formRef.current) {
+      observer.observe(formRef.current)
+    }
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   const handleChange = (e) => {
     setFormData({
@@ -48,7 +84,7 @@ const Contact = () => {
         </div>
 
         <div className="contact-content">
-          <div className="contact-info">
+          <div className="contact-info" ref={contactInfoRef}>
             <div className="info-card contact-card-small">
               <div className="info-icon-wrapper">
                 <div className="info-icon">📧</div>
@@ -115,7 +151,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form className="contact-form" onSubmit={handleSubmit} ref={formRef}>
             <div className="form-group">
               <label htmlFor="name">Full Name</label>
               <input

@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './Booking.css'
 
 const Booking = () => {
+  const formRef = useRef(null)
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -11,6 +12,35 @@ const Booking = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
+
+  useEffect(() => {
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in')
+        }
+      })
+    }, observerOptions)
+
+    // Observe form sections
+    if (formRef.current) {
+      const formSections = formRef.current.querySelectorAll('.form-section')
+      Array.from(formSections).forEach((section, index) => {
+        section.style.animationDelay = `${index * 0.15}s`
+        observer.observe(section)
+      })
+    }
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   const handleChange = (e) => {
     setFormData({
@@ -63,7 +93,7 @@ const Booking = () => {
           </p>
         </div>
 
-        <form className="booking-form" onSubmit={handleSubmit}>
+        <form className="booking-form" onSubmit={handleSubmit} ref={formRef}>
           <div className="form-section">
             <h3 className="form-section-title">Your Information</h3>
             

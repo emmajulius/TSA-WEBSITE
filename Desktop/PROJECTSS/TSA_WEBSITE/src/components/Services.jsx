@@ -1,10 +1,46 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Services.css'
 
 const Services = () => {
   const navigate = useNavigate()
   const [hoveredCard, setHoveredCard] = useState(null)
+  const servicesGridRef = useRef(null)
+  const ctaRef = useRef(null)
+
+  useEffect(() => {
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in')
+        }
+      })
+    }, observerOptions)
+
+    // Observe service cards
+    if (servicesGridRef.current) {
+      const serviceCards = servicesGridRef.current.children
+      Array.from(serviceCards).forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`
+        observer.observe(card)
+      })
+    }
+
+    // Observe CTA section
+    if (ctaRef.current) {
+      observer.observe(ctaRef.current)
+    }
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   const services = [
     {
@@ -68,7 +104,7 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="services-grid">
+        <div className="services-grid" ref={servicesGridRef}>
           {services.map((service, index) => (
             <div 
               key={index} 
@@ -108,7 +144,7 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="services-cta">
+        <div className="services-cta" ref={ctaRef}>
           <div className="cta-content">
             <h3>Ready to Get Started?</h3>
             <p>Let's discuss how we can help transform your business with our expert services.</p>
