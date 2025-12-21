@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import Certifications from './Certifications'
 import './About.css'
 
 const About = () => {
@@ -28,19 +27,6 @@ const About = () => {
       description: 'Precision in every detail, from code quality to project delivery, ensuring flawless execution.',
       details: 'We maintain rigorous quality standards and thorough testing to ensure error-free deliverables.'
     }
-  ]
-
-  const milestones = [
-    { year: '2014', title: 'Company Founded', description: 'Started with a vision to transform digital solutions' },
-    { year: '2017', title: '100 Projects', description: 'Reached milestone of 100 successful project deliveries' },
-    { year: '2024', title: 'Industry Leader', description: 'Recognized as a leading IT solutions provider' }
-  ]
-
-  const team = [
-    { name: 'Expert Developers', count: '25+', icon: '👨‍💻' },
-    { name: 'Design Specialists', count: '10+', icon: '🎨' },
-    { name: 'Project Managers', count: '8+', icon: '👔' },
-    { name: 'QA Engineers', count: '12+', icon: '🔍' }
   ]
 
   return (
@@ -123,36 +109,7 @@ const About = () => {
             </div>
           </div>
         </div>
-
-        <div className="timeline-section">
-          <h3 className="timeline-title">Our Journey</h3>
-          <div className="timeline">
-            {milestones.map((milestone, index) => (
-              <div key={index} className="timeline-item">
-                <div className="timeline-year">{milestone.year}</div>
-                <div className="timeline-content">
-                  <h4>{milestone.title}</h4>
-                  <p>{milestone.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="team-section">
-          <h3 className="team-title">Our Team</h3>
-          <div className="team-grid">
-            {team.map((member, index) => (
-              <div key={index} className="team-card">
-                <div className="team-icon">{member.icon}</div>
-                <div className="team-count">{member.count}</div>
-                <div className="team-name">{member.name}</div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
-      <Certifications />
     </section>
   )
 }
