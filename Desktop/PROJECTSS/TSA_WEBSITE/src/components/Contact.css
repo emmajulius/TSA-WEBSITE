@@ -1,5 +1,5 @@
 .contact {
-  padding: 10rem 2rem 6rem 2rem;
+  padding: 12rem 2rem 6rem 2rem;
   background: white;
 }
 
@@ -233,7 +233,7 @@
 
 @media (max-width: 768px) {
   .contact {
-    padding: 8rem 1rem 4rem 1rem;
+    padding: 10rem 1rem 4rem 1rem;
   }
 
   .contact-form {
