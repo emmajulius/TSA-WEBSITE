@@ -68,6 +68,13 @@
   font-size: 2.5rem;
 }
 
+.whatsapp-icon svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: #25D366;
+  display: block;
+}
+
 .contact-card-small .info-icon-wrapper {
   margin-bottom: 0.75rem;
 }
