@@ -1,11 +1,49 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './About.css'
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false)
+  const valuesRef = useRef(null)
+  const statsRef = useRef(null)
 
   useEffect(() => {
     setIsVisible(true)
+    
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in')
+        }
+      })
+    }, observerOptions)
+
+    // Observe value cards
+    if (valuesRef.current) {
+      const valueCards = valuesRef.current.children
+      Array.from(valueCards).forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.15}s`
+        observer.observe(card)
+      })
+    }
+
+    // Observe stat items
+    if (statsRef.current) {
+      const statItems = statsRef.current.children
+      Array.from(statItems).forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.1}s`
+        observer.observe(item)
+      })
+    }
+
+    return () => {
+      observer.disconnect()
+    }
   }, [])
 
   const values = [
@@ -41,9 +79,9 @@ const About = () => {
           </p>
         </div>
 
-        <div className={`values-grid ${isVisible ? 'fade-in' : ''}`}>
+        <div className="values-grid" ref={valuesRef}>
           {values.map((value, index) => (
-            <div key={index} className="value-card" style={{ animationDelay: `${index * 0.1}s` }}>
+            <div key={index} className="value-card">
               <div className="value-icon-wrapper">
                 <div className="value-icon">{value.icon}</div>
               </div>
@@ -85,7 +123,7 @@ const About = () => {
               </ul>
             </div>
           </div>
-          <div className={`about-stats ${isVisible ? 'fade-in-right' : ''}`}>
+          <div className="about-stats" ref={statsRef}>
             <div className="stat-item">
               <div className="stat-icon">📊</div>
               <div className="stat-number">30+</div>

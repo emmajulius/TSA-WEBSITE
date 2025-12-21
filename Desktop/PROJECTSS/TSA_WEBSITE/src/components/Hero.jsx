@@ -1,13 +1,51 @@
 import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './Hero.css'
 
 const Hero = () => {
   const navigate = useNavigate()
   const [isVisible, setIsVisible] = useState(false)
+  const statsRef = useRef(null)
+  const cardsRef = useRef(null)
 
   useEffect(() => {
     setIsVisible(true)
+    
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in')
+        }
+      })
+    }, observerOptions)
+
+    // Observe stats
+    if (statsRef.current) {
+      const statItems = statsRef.current.children
+      Array.from(statItems).forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.1}s`
+        observer.observe(item)
+      })
+    }
+
+    // Observe cards
+    if (cardsRef.current) {
+      const cardItems = cardsRef.current.children
+      Array.from(cardItems).forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.15}s`
+        observer.observe(item)
+      })
+    }
+
+    return () => {
+      observer.disconnect()
+    }
   }, [])
 
   const stats = [
@@ -54,7 +92,7 @@ const Hero = () => {
               Explore Services
             </button>
           </div>
-          <div className="hero-stats">
+          <div className="hero-stats" ref={statsRef}>
             {stats.map((stat, index) => (
               <div key={index} className="hero-stat-item">
                 <div className="stat-number">{stat.number}</div>
@@ -62,7 +100,7 @@ const Hero = () => {
               </div>
             ))}
           </div>
-          <div className={`hero-cards-wrapper ${isVisible ? 'fade-in-up' : ''}`}>
+          <div className="hero-cards-wrapper" ref={cardsRef}>
             <div className="hero-card card-1">
               <div className="card-icon">💻</div>
               <h3>Digital Innovation</h3>
