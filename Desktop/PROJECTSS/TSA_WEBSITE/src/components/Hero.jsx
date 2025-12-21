@@ -30,9 +30,6 @@ const Hero = () => {
       </div>
       <div className="hero-content">
         <div className={`hero-text ${isVisible ? 'fade-in-up' : ''}`}>
-          <div className="hero-badge">
-            <span>🚀 Trusted by Leading Businesses</span>
-          </div>
           <h1 className="hero-title">
             <span className="hero-title-main">TSA Digital Solutions</span>
             <span className="hero-title-sub">Technique, Speed & Accuracy</span>
