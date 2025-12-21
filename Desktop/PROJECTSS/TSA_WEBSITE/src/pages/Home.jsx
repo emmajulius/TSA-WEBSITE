@@ -1,20 +1,32 @@
+import { useEffect } from 'react'
 import Hero from '../components/Hero'
-import TerminalEffect from '../components/TerminalEffect'
+import About from '../components/About'
 import './Home.css'
 
 const Home = () => {
+  useEffect(() => {
+    // Handle hash scrolling on page load
+    if (window.location.hash === '#about') {
+      setTimeout(() => {
+        const aboutSection = document.getElementById('about')
+        if (aboutSection) {
+          const headerOffset = 80
+          const elementPosition = aboutSection.getBoundingClientRect().top
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          })
+        }
+      }, 100)
+    }
+  }, [])
+
   return (
     <div className="page-home">
       <Hero />
-      <section className="terminal-section">
-        <div className="terminal-section-container">
-          <div className="terminal-section-content">
-            <h2>Experience Our Development Process</h2>
-            <p>Watch how we bring your ideas to life with cutting-edge technology</p>
-          </div>
-          <TerminalEffect />
-        </div>
-      </section>
+      <About />
     </div>
   )
 }
