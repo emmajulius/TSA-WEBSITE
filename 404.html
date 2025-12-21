@@ -2,37 +2,23 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>TSA Digital Solutions</title>
+    <title>Redirecting...</title>
     <script>
-      // Single Page Apps for GitHub Pages
-      // https://github.com/rafgraph/spa-github-pages
-      // This script takes the current url and converts the path and query
-      // string into just a query string, and then redirects the browser
-      // to the new url with only a query string and hash fragment,
-      // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
-      // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
-      // Note: this 404.html file must be at least 512 bytes for some
-      // browsers to show it instead of using the default 404 page.
-
-      // If you're creating a Project Pages site and NOT using a custom domain,
-      // then set segmentCount to 1 (enter your user or org name below).
-      // Otherwise, set segmentCount to the number of path segments in your URL.
-      // For example, if your site URL is https://www.example.com/TSA-WEBSITE/,
-      // then segmentCount would be 1.
-      var segmentCount = 1;
-
+      // GitHub Pages SPA redirect
+      // Redirects to index.html with the path as a query parameter
+      var pathSegmentsToKeep = 0;
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
-        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+        '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
         (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
         l.hash
       );
-
     </script>
   </head>
   <body>
+    <p>Redirecting...</p>
   </body>
 </html>
 
