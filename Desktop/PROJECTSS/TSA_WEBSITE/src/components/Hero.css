@@ -460,6 +460,23 @@
   }
 }
 
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .hero-title-main {
+    font-size: 3rem;
+  }
+
+  .hero-cards-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
 @media (max-width: 968px) {
   .hero-content {
     gap: 2rem;
