@@ -16,8 +16,8 @@
 }
 
 .contact-info {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
 
@@ -288,6 +288,24 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .contact-info {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+.map-card {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+}
 }
 
 @media (max-width: 968px) {

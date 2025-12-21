@@ -151,6 +151,13 @@
   }
 }
 
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .booking-form {
+    padding: 2.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .booking {
     padding: 4rem 1rem;

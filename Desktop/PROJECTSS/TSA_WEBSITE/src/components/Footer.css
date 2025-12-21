@@ -134,6 +134,14 @@
   }
 }
 
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .footer {
     padding: 3rem 1rem 1.5rem;

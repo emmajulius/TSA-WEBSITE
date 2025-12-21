@@ -267,6 +267,18 @@
   }
 }
 
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    padding: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .services {
     padding: 7rem 1rem 4rem 1rem;
@@ -294,6 +306,10 @@
 
   .cta-buttons .btn {
     width: 100%;
+  }
+
+  .service-card {
+    padding: 1.75rem;
   }
 }
 
