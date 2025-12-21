@@ -61,7 +61,6 @@ const Services = () => {
     <section id="services" className="services">
       <div className="services-container">
         <div className="section-header">
-          <span className="section-badge">What We Offer</span>
           <h2 className="section-title">Our Services</h2>
           <p className="section-subtitle">
             Comprehensive IT solutions tailored to meet your business needs and drive growth. 

@@ -40,7 +40,6 @@ const Contact = () => {
     <section id="contact" className="contact">
       <div className="contact-container">
         <div className="section-header">
-          <span className="section-badge">Contact Us</span>
           <h2 className="section-title">Get In Touch</h2>
           <p className="section-subtitle">
             Ready to transform your ideas into digital success? Let's start a conversation. 

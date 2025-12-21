@@ -131,10 +131,7 @@ const Header = ({ isScrolled }) => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         <a href="/" className="logo-link" onClick={handleHomeClick}>
-          <div className="logo">
-            <span className="logo-text">TSA</span>
-            <span className="logo-subtitle">Digital Solutions</span>
-          </div>
+          <img src="/TSA_LOGO.jpeg" alt="TSA Digital Solutions" className="logo-image" />
         </a>
         
         <nav className={`nav ${isMobileMenuOpen ? 'mobile-open' : ''}`}>

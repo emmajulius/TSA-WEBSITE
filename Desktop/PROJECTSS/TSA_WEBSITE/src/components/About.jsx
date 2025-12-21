@@ -33,7 +33,6 @@ const About = () => {
     <section id="about" className="about">
       <div className="about-container">
         <div className="section-header">
-          <span className="section-badge">About Us</span>
           <h2 className="section-title">About TSA Digital Solutions</h2>
           <p className="section-subtitle">
             We are a forward-thinking IT company dedicated to transforming your business ideas 

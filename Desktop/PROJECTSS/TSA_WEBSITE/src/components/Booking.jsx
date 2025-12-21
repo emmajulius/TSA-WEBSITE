@@ -56,7 +56,6 @@ const Booking = () => {
     <section id="booking" className="booking">
       <div className="booking-container">
         <div className="section-header">
-          <span className="section-badge">Schedule Now</span>
           <h2 className="section-title">Book a Consultation</h2>
           <p className="section-subtitle">
             Schedule a consultation period to discuss your project needs and timeline. 
