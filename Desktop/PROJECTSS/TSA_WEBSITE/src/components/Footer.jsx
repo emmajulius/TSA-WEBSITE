@@ -10,7 +10,8 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-section">
             <div className="footer-logo">
-              <img src="/TSA_LOGO.jpeg" alt="TSA Digital Solutions Logo" className="footer-logo-image" />
+              <span className="logo-text">TSA</span>
+              <span className="logo-subtitle">Digital Solutions</span>
             </div>
             <p className="footer-tagline">
               We transforming Ideas To digital success stories
