@@ -164,7 +164,7 @@ const Contact = () => {
                 <a href="tel:+255756556768">+255756556768</a>
                 <a href="tel:+255650379646">+255650379646</a>
               </div>
-              <p className="info-note">Mon-Fri: 9AM - 6PM EST</p>
+              <p className="info-note">Mon-Sat: 8AM - 5PM EST</p>
             </div>
             <div className="info-card map-card">
               <h3>Find Us</h3>
