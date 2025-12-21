@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { isValidPhoneNumber } from 'libphonenumber-js'
 import './Contact.css'
 
 const Contact = () => {
@@ -12,6 +13,7 @@ const Contact = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
+  const [phoneError, setPhoneError] = useState('')
 
   useEffect(() => {
     // Intersection Observer for scroll animations
@@ -47,15 +49,55 @@ const Contact = () => {
     }
   }, [])
 
+  const validatePhone = (phone) => {
+    if (!phone) {
+      setPhoneError('')
+      return true
+    }
+    
+    // Check if phone starts with +
+    if (!phone.startsWith('+')) {
+      setPhoneError('Phone number must start with country code (e.g., +255, +254)')
+      return false
+    }
+    
+    // Validate phone number using libphonenumber-js
+    try {
+      const isValid = isValidPhoneNumber(phone)
+      if (isValid) {
+        setPhoneError('')
+        return true
+      } else {
+        setPhoneError('Please enter a valid international phone number')
+        return false
+      }
+    } catch (error) {
+      setPhoneError('Please enter a valid international phone number')
+      return false
+    }
+  }
+
   const handleChange = (e) => {
+    const { name, value } = e.target
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     })
+    
+    // Validate phone number in real-time
+    if (name === 'phone') {
+      validatePhone(value)
+    }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    
+    // Validate phone number before submission
+    if (!validatePhone(formData.phone)) {
+      return
+    }
+    
     setIsSubmitting(true)
     setSubmitStatus(null)
 
@@ -64,6 +106,7 @@ const Contact = () => {
       setIsSubmitting(false)
       setSubmitStatus('success')
       setFormData({ name: '', email: '', phone: '', message: '' })
+      setPhoneError('')
       
       // Reset status message after 5 seconds
       setTimeout(() => {
@@ -184,8 +227,11 @@ const Contact = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
+                required
                 placeholder="+255756556768"
+                className={phoneError ? 'input-error' : ''}
               />
+              {phoneError && <span className="error-message">{phoneError}</span>}
             </div>
             <div className="form-group">
               <label htmlFor="message">Message</label>

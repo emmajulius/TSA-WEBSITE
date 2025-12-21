@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { isValidPhoneNumber } from 'libphonenumber-js'
 import './Booking.css'
 
 const Booking = () => {
@@ -12,6 +13,7 @@ const Booking = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
+  const [phoneError, setPhoneError] = useState('')
 
   useEffect(() => {
     // Intersection Observer for scroll animations
@@ -42,11 +44,45 @@ const Booking = () => {
     }
   }, [])
 
+  const validatePhone = (phone) => {
+    if (!phone) {
+      setPhoneError('')
+      return true
+    }
+    
+    // Check if phone starts with +
+    if (!phone.startsWith('+')) {
+      setPhoneError('Phone number must start with country code (e.g., +255, +254)')
+      return false
+    }
+    
+    // Validate phone number using libphonenumber-js
+    try {
+      const isValid = isValidPhoneNumber(phone)
+      if (isValid) {
+        setPhoneError('')
+        return true
+      } else {
+        setPhoneError('Please enter a valid international phone number')
+        return false
+      }
+    } catch (error) {
+      setPhoneError('Please enter a valid international phone number')
+      return false
+    }
+  }
+
   const handleChange = (e) => {
+    const { name, value } = e.target
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     })
+    
+    // Validate phone number in real-time
+    if (name === 'phone') {
+      validatePhone(value)
+    }
   }
 
   const formatDate = (dateString) => {
@@ -60,6 +96,12 @@ const Booking = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    
+    // Validate phone number before submission
+    if (!validatePhone(formData.phone)) {
+      return
+    }
+    
     setIsSubmitting(true)
     setSubmitStatus(null)
 
@@ -74,6 +116,7 @@ const Booking = () => {
         checkInDate: '', 
         checkOutDate: '' 
       })
+      setPhoneError('')
       
       // Reset status message after 5 seconds
       setTimeout(() => {
@@ -132,8 +175,10 @@ const Booking = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 required
-                placeholder="Enter your phone number"
+                placeholder="+255756556768"
+                className={phoneError ? 'input-error' : ''}
               />
+              {phoneError && <span className="error-message">{phoneError}</span>}
             </div>
           </div>
 
