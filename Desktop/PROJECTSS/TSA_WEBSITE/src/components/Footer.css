@@ -19,6 +19,15 @@
 .footer-section {
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.footer-section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+  animation: footerSectionFadeIn 0.6s ease forwards;
 }
 
 .footer-logo {
@@ -112,6 +121,17 @@
 .footer-bottom p {
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.9rem;
+}
+
+@keyframes footerSectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
