@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import CodeSnippet from './CodeSnippet'
 import './Hero.css'
 
 const Hero = () => {
@@ -66,12 +65,7 @@ const Hero = () => {
               </div>
             ))}
           </div>
-        </div>
-        <div className={`hero-visual ${isVisible ? 'fade-in-right' : ''}`}>
-          <div className="code-showcase">
-            <CodeSnippet />
-          </div>
-          <div className="hero-cards-wrapper">
+          <div className={`hero-cards-wrapper ${isVisible ? 'fade-in-up' : ''}`}>
             <div className="hero-card card-1">
               <div className="card-icon">💻</div>
               <h3>Digital Innovation</h3>
