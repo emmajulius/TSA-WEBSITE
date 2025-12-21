@@ -420,23 +420,14 @@
   }
 }
 
-/* Tablet styles */
-@media (max-width: 1024px) {
-  .values-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .about-stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
 @media (max-width: 968px) {
   .about-content {
     grid-template-columns: 1fr;
     gap: 3rem;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

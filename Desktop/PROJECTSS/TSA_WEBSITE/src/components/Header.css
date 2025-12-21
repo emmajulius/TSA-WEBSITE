@@ -96,21 +96,6 @@
   border-radius: 2px;
 }
 
-/* Tablet styles */
-@media (max-width: 1024px) {
-  .logo-image {
-    height: 75px;
-  }
-
-  .nav {
-    gap: 1.5rem;
-  }
-
-  .nav a {
-    font-size: 0.95rem;
-  }
-}
-
 @media (max-width: 768px) {
   .mobile-menu-toggle {
     display: flex;
@@ -140,10 +125,6 @@
 
   .header-container {
     padding: 0.6rem 1rem;
-  }
-
-  .logo-image {
-    height: 70px;
   }
 }
 
