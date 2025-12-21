@@ -116,7 +116,19 @@ const Services = () => {
             <div className="cta-buttons">
               <button 
                 className="btn btn-primary"
-                onClick={() => navigate('/booking')}
+                onClick={() => {
+                  const bookingSection = document.getElementById('booking')
+                  if (bookingSection) {
+                    const headerOffset = 80
+                    const elementPosition = bookingSection.getBoundingClientRect().top
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+                    
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    })
+                  }
+                }}
               >
                 Schedule Consultation
               </button>
