@@ -5,7 +5,6 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import ServicesPage from './pages/Services'
-import BookingPage from './pages/Booking'
 import ContactPage from './pages/Contact'
 
 function App() {
@@ -28,7 +27,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<Navigate to="/" replace />} />
           <Route path="/services" element={<ServicesPage />} />
-          <Route path="/booking" element={<BookingPage />} />
+          <Route path="/booking" element={<Navigate to="/services" replace />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
         <Footer />
