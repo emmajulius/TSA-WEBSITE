@@ -50,7 +50,7 @@ const Contact = () => {
 
         <div className="contact-content">
           <div className="contact-info">
-            <div className="info-card">
+            <div className="info-card contact-card-small">
               <div className="info-icon-wrapper">
                 <div className="info-icon">📧</div>
               </div>
@@ -61,7 +61,19 @@ const Contact = () => {
               </div>
               <p className="info-note">We typically respond within 24 hours</p>
             </div>
-            <div className="info-card">
+            <div className="info-card contact-card-small">
+              <div className="info-icon-wrapper">
+                <div className="info-icon">💬</div>
+              </div>
+              <h3>WhatsApp</h3>
+              <div className="info-details">
+                <a href="https://wa.me/255756556768" target="_blank" rel="noopener noreferrer">
+                  Chat with us
+                </a>
+              </div>
+              <p className="info-note">Quick response via WhatsApp</p>
+            </div>
+            <div className="info-card contact-card-small">
               <div className="info-icon-wrapper">
                 <div className="info-icon">📞</div>
               </div>

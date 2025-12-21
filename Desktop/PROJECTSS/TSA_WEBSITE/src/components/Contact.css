@@ -28,6 +28,10 @@
   transition: all 0.3s ease;
 }
 
+.contact-card-small {
+  padding: 1.5rem;
+}
+
 .info-card:hover {
   background: white;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
@@ -53,6 +57,34 @@
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 1rem;
+}
+
+.contact-card-small h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.contact-card-small .info-icon {
+  font-size: 2.5rem;
+}
+
+.contact-card-small .info-icon-wrapper {
+  margin-bottom: 0.75rem;
+}
+
+.contact-card-small .info-details {
+  margin-bottom: 0.75rem;
+}
+
+.contact-card-small .info-details a {
+  font-size: 0.95rem;
+  margin: 0.4rem 0;
+}
+
+.contact-card-small .info-note {
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  padding-top: 0.6rem;
 }
 
 .info-details {
